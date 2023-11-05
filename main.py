@@ -4,7 +4,7 @@ from models.game import Game
 from models.player import Player
 
 def main():
-    print("Hello. You are going to play the game 'Number Scrabble'.")
+    print("Hello. You are going to play the game 'Number Scrabble'.\n")
     
     game = Game()
 
@@ -20,13 +20,16 @@ def main():
 
             is_valid = game.mark_chosen_number(user_number)
 
-        if game.turn == Player.CALCULATOR:
+        if game.turn == Player.COMPUTER:
             calc_number = random.randint(1, 9)
 
             is_valid = game.mark_chosen_number(calc_number)
 
         if is_valid:
             game.turn = 1 - game.turn
+        
+        
+        print()
 
 
     game.win_announcement()
